@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Countdown from "./Countdown";
 import NewCountdown from "./NewCountdown";
@@ -15,14 +15,16 @@ const CountdownList = () => {
   );
   const [globalAction, setGlobalAction] = useState(null);
 
+  useEffect(() => {
+    localStorage.setItem("timers", JSON.stringify(countdownList));
+  }, [countdownList]);
+
   const countdownAdder = (data) => {
     setCountdownList((prevCounts) => {
-      let savedTimers = [
+      return [
         ...prevCounts,
         { id: data.id, title: data.title, timeSet: data.timeSet * 60 },
       ];
-      localStorage.setItem("timers", JSON.stringify(savedTimers));
-      return savedTimers;
     });
   };
 
