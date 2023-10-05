@@ -5,12 +5,12 @@ function App() {
   return (
     <>
       <header>
-        <h1>Routinify your health</h1>
+        <h1>Have some healthy routines!</h1>
       </header>
       <section>
-        While you are working is hard to keep tracks of many things. Routinify
-        your health with these simple timers. You can add other timers if you
-        prefer.
+        While you are working is hard to keep tracks of many things. Have a
+        healthy routine with these simple timers. You can add other timers if
+        you prefer.
       </section>
       <CountdownList />
     </>
