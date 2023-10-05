@@ -10,15 +10,19 @@ const countdowns = [
 ];
 
 const CountdownList = () => {
-  const [countdownList, setCountdownList] = useState(countdowns);
+  const [countdownList, setCountdownList] = useState(
+    JSON.parse(localStorage.getItem("timers")) || countdowns
+  );
   const [globalAction, setGlobalAction] = useState(null);
 
   const countdownAdder = (data) => {
     setCountdownList((prevCounts) => {
-      return [
+      let savedTimers = [
         ...prevCounts,
         { id: data.id, title: data.title, timeSet: data.timeSet * 60 },
       ];
+      localStorage.setItem("timers", JSON.stringify(savedTimers));
+      return savedTimers;
     });
   };
 
