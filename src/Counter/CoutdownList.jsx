@@ -11,6 +11,7 @@ const countdowns = [
 
 const CountdownList = () => {
   const [countdownList, setCountdownList] = useState(countdowns);
+  const [globalAction, setGlobalAction] = useState(null);
 
   const countdownAdder = (data) => {
     setCountdownList((prevCounts) => {
@@ -27,8 +28,15 @@ const CountdownList = () => {
     });
   };
 
+  const startAllTimers = () => setGlobalAction("start");
+  const stopAllTimers = () => setGlobalAction("stop");
+  const resetAllTimers = () => setGlobalAction("reset");
+
   return (
     <>
+      <button onClick={startAllTimers}>Start All</button>
+      <button onClick={stopAllTimers}>Stop All</button>
+      <button onClick={resetAllTimers}>Reset All</button>
       {countdownList.map((timer) => {
         return (
           <Countdown
@@ -38,6 +46,7 @@ const CountdownList = () => {
             onDelete={() => {
               deleteTimer(timer.id);
             }}
+            globalAction={globalAction}
           />
         );
       })}

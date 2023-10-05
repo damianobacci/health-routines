@@ -28,7 +28,18 @@ const Countdown = (props) => {
     return () => clearInterval(timerId);
   }, [timeInSeconds, isActive, isPaused]);
 
-  // Remaining calculations and methods remain the same...
+  useEffect(() => {
+    if (props.globalAction === "start") {
+      setIsActive(true);
+      setIsPaused(false);
+    } else if (props.globalAction === "stop") {
+      setIsPaused(true);
+    } else if (props.globalAction === "reset") {
+      setIsActive(false);
+      setIsPaused(false);
+      setTimeInSeconds(props.timeSet);
+    }
+  }, [props.globalAction, props.timeSet]);
 
   let hours = String(Math.floor(timeInSeconds / 3600)).padStart(2, "0");
   let minutes = String(Math.floor((timeInSeconds % 3600) / 60)).padStart(
