@@ -42,7 +42,7 @@ const Countdown = (props) => {
   const resetCountdown = () => {
     setIsActive(false);
     setIsPaused(false);
-    setTimeInSeconds(3600);
+    setTimeInSeconds(props.timeSet);
     // Ensure audio is paused and reset to start when resetting the timer
     audioRef.current.pause();
     audioRef.current.currentTime = 0;
