@@ -64,7 +64,7 @@ const Countdown = (props) => {
       <h2>{props.title}</h2>
       <h3>{`${hours}:${minutes}:${seconds}`}</h3>
       <button onClick={startCountdown} disabled={isActive && !isPaused}>
-        Start
+        ▶️
       </button>
       <button onClick={pauseCountdown} disabled={!isActive}>
         Pause/Resume
