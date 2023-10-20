@@ -1,0 +1,21 @@
+.counter {
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 0.7em;
+}
+
+.button-primary {
+  border: 0px solid transparent;
+  border-radius: 15px;
+  padding: 0.5em;
+  margin: 0 0.2em;
+}
+
+.button-delete {
+  border: 0px solid transparent;
+  border-radius: 15px;
+  background-color: red;
+  color: white;
+  padding: 0.5em;
+  margin: 0 0.2em;
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import alarm from "../assets/alarm.wav";
+import classes from "./Countdown.module.css";
 
 const Countdown = (props) => {
   const [timeInSeconds, setTimeInSeconds] = useState(props.timeSet);
@@ -60,19 +61,31 @@ const Countdown = (props) => {
   };
 
   return (
-    <>
+    <div className={classes.counter}>
       <h2>{props.title}</h2>
       <h3>{`${hours}:${minutes}:${seconds}`}</h3>
-      <button onClick={startCountdown} disabled={isActive && !isPaused}>
+      <button
+        className={classes["button-primary"]}
+        onClick={startCountdown}
+        disabled={isActive && !isPaused}
+      >
         ▶️
       </button>
-      <button onClick={pauseCountdown} disabled={!isActive}>
+      <button
+        className={classes["button-primary"]}
+        onClick={pauseCountdown}
+        disabled={!isActive}
+      >
         Pause/Resume
       </button>
-      <button onClick={resetCountdown}>Reset</button>
-      <button onClick={props.onDelete}>Delete</button>
+      <button className={classes["button-primary"]} onClick={resetCountdown}>
+        Reset
+      </button>
+      <button className={classes["button-delete"]} onClick={props.onDelete}>
+        Delete
+      </button>
       <audio ref={audioRef} src={alarm} preload="auto"></audio>
-    </>
+    </div>
   );
 };
 
