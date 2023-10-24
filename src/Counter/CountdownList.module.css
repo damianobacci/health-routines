@@ -1,0 +1,11 @@
+.list {
+  padding: 0.7em;
+}
+
+.button-primary {
+  border: 0px solid transparent;
+  border-radius: 15px;
+  padding: 0.5em;
+  margin: 1em 0.2em;
+  font-size: 16px;
+}

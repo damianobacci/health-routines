@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
+import classes from "./CountdownList.module.css";
 
 import Countdown from "./Countdown";
 import NewCountdown from "./NewCountdown";
+import SelectAudio from "./SelectAudio";
+import alarm from "../assets/alarm.wav";
 
 const countdowns = [
   { id: 0, title: "Drink your water 🥛🚰", timeSet: 3600 },
   { id: 1, title: "Put eye drops 💧👁️", timeSet: 3600 },
-  { id: 2, title: "Walk/do some stretching 🚶🧘", timeSet: 3600 },
+  { id: 2, title: "Walk/do stretching 🚶🧘", timeSet: 3600 },
 ];
 
 const CountdownList = () => {
@@ -14,6 +17,7 @@ const CountdownList = () => {
     JSON.parse(localStorage.getItem("timers")) || countdowns
   );
   const [globalAction, setGlobalAction] = useState(null);
+  const [selectedAudio, setSelectedAudio] = useState(alarm);
 
   useEffect(() => {
     localStorage.setItem("timers", JSON.stringify(countdownList));
@@ -28,6 +32,10 @@ const CountdownList = () => {
     });
   };
 
+  const audioChangeHandler = (audio) => {
+    setSelectedAudio(audio);
+  };
+
   const deleteTimer = (idToDelete) => {
     setCountdownList((prevCounts) => {
       return prevCounts.filter((countdown) => countdown.id !== idToDelete);
@@ -37,12 +45,20 @@ const CountdownList = () => {
   const startAllTimers = () => setGlobalAction("start");
   const stopAllTimers = () => setGlobalAction("stop");
   const resetAllTimers = () => setGlobalAction("reset");
+  const resetGlobalAction = () => setGlobalAction(null);
 
   return (
-    <>
-      <button onClick={startAllTimers}>Start All</button>
-      <button onClick={stopAllTimers}>Stop All</button>
-      <button onClick={resetAllTimers}>Reset All</button>
+    <div className={classes.list}>
+      <SelectAudio onAudioChange={audioChangeHandler} />
+      <button className={classes["button-primary"]} onClick={startAllTimers}>
+        Start All
+      </button>
+      <button className={classes["button-primary"]} onClick={stopAllTimers}>
+        Stop All
+      </button>
+      <button className={classes["button-primary"]} onClick={resetAllTimers}>
+        Reset All
+      </button>
       {countdownList.map((timer) => {
         return (
           <Countdown
@@ -53,11 +69,13 @@ const CountdownList = () => {
               deleteTimer(timer.id);
             }}
             globalAction={globalAction}
+            reset={resetGlobalAction}
+            audio={selectedAudio}
           />
         );
       })}
       <NewCountdown onAddTimer={countdownAdder} />
-    </>
+    </div>
   );
 };
 

@@ -24,6 +24,11 @@
   box-sizing: border-box;
 }
 
-body {
-  padding: 0.5em;
+.header {
+  padding: 0.7em 0.7em 0 0.7em;
+  margin-bottom: 0;
+}
+
+.text {
+  padding: 0.7em 0.7em 0 0.7em;
 }

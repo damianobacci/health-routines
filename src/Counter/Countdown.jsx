@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import alarm from "../assets/alarm.wav";
 import classes from "./Countdown.module.css";
 
 const Countdown = (props) => {
   const [timeInSeconds, setTimeInSeconds] = useState(props.timeSet);
-  const [isActive, setIsActive] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   // Reference to the audio element
   const audioRef = React.useRef(null);
@@ -13,32 +11,33 @@ const Countdown = (props) => {
   useEffect(() => {
     let timerId;
 
-    if (isActive && !isPaused && timeInSeconds > 0) {
+    if (isPlaying && timeInSeconds > 0) {
       timerId = setInterval(() => {
         setTimeInSeconds((time) => time - 1);
       }, 1000);
-    } else if (!timeInSeconds || !isActive || isPaused) {
+    } else if (!timeInSeconds || !isPlaying) {
       clearInterval(timerId);
     }
 
     // Play the audio when the timer reaches 0
-    if (timeInSeconds === 0 && isActive) {
+    if (timeInSeconds === 0 && isPlaying) {
       audioRef.current.play();
     }
 
     return () => clearInterval(timerId);
-  }, [timeInSeconds, isActive, isPaused]);
+  }, [timeInSeconds, isPlaying, props.audio]);
 
   useEffect(() => {
     if (props.globalAction === "start") {
-      setIsActive(true);
-      setIsPaused(false);
+      setIsPlaying(true);
+      props.reset();
     } else if (props.globalAction === "stop") {
-      setIsPaused(true);
+      setIsPlaying(false);
+      props.reset();
     } else if (props.globalAction === "reset") {
-      setIsActive(false);
-      setIsPaused(false);
+      setIsPlaying(false);
       setTimeInSeconds(props.timeSet);
+      props.reset();
     }
   }, [props.globalAction, props.timeSet]);
 
@@ -49,11 +48,10 @@ const Countdown = (props) => {
   );
   let seconds = String(timeInSeconds % 60).padStart(2, "0");
 
-  const startCountdown = () => setIsActive(true);
-  const pauseCountdown = () => setIsPaused((prevState) => !prevState);
+  const startCountdown = () => setIsPlaying(true);
+  const pauseCountdown = () => setIsPlaying(false);
   const resetCountdown = () => {
-    setIsActive(false);
-    setIsPaused(false);
+    setIsPlaying(false);
     setTimeInSeconds(props.timeSet);
     // Ensure audio is paused and reset to start when resetting the timer
     audioRef.current.pause();
@@ -62,29 +60,24 @@ const Countdown = (props) => {
 
   return (
     <div className={classes.counter}>
-      <h2>{props.title}</h2>
-      <h3>{`${hours}:${minutes}:${seconds}`}</h3>
-      <button
-        className={classes["button-primary"]}
-        onClick={startCountdown}
-        disabled={isActive && !isPaused}
-      >
-        ▶️
-      </button>
-      <button
-        className={classes["button-primary"]}
-        onClick={pauseCountdown}
-        disabled={!isActive}
-      >
-        Pause/Resume
-      </button>
+      <h2 className={classes.title}>{props.title}</h2>
+      <h3 className={classes.time}>{`${hours}:${minutes}:${seconds}`}</h3>
+      {isPlaying ? (
+        <button className={classes["button-primary"]} onClick={pauseCountdown}>
+          ⏸️
+        </button>
+      ) : (
+        <button className={classes["button-primary"]} onClick={startCountdown}>
+          ▶️
+        </button>
+      )}
       <button className={classes["button-primary"]} onClick={resetCountdown}>
-        Reset
+        🔁
       </button>
       <button className={classes["button-delete"]} onClick={props.onDelete}>
         Delete
       </button>
-      <audio ref={audioRef} src={alarm} preload="auto"></audio>
+      <audio ref={audioRef} src={props.audio} preload="auto"></audio>
     </div>
   );
 };
