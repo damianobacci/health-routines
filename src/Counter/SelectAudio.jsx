@@ -31,11 +31,11 @@ const SelectAudio = (props) => {
   return (
     <div>
       <label className={classes.label} htmlFor="audioSelect">
-        Alarm
+        Select an alarm:
       </label>
       <select onChange={audioChangeHandler} name="audioSelect" id="audioSelect">
         <option value="alarm">Digital Alarm</option>
-        <option value="bell">Bell</option>
+        <option value="bell">Train bell</option>
         <option value="telephone">Telephone</option>
       </select>
       <button className={classes["button-primary"]} onClick={playPreviewAudio}>
