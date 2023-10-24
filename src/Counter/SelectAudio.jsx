@@ -3,6 +3,8 @@ import alarm from "../assets/alarm.wav";
 import bell from "../assets/bell.wav";
 import telephone from "../assets/telephone.mp3";
 
+import classes from "./SelectAudio.module.css";
+
 const SelectAudio = (props) => {
   const audioRef = useRef(null);
   const [audio, setAudio] = useState(alarm);
@@ -28,15 +30,17 @@ const SelectAudio = (props) => {
   };
   return (
     <div>
-      <label htmlFor="audioSelect">Select your alarm: </label>
+      <label className={classes.label} htmlFor="audioSelect">
+        Alarm
+      </label>
       <select onChange={audioChangeHandler} name="audioSelect" id="audioSelect">
-        <option value="alarm" defaultValue>
-          Digital Alarm
-        </option>
+        <option value="alarm">Digital Alarm</option>
         <option value="bell">Bell</option>
         <option value="telephone">Telephone</option>
       </select>
-      <button onClick={playPreviewAudio}>Preview 🎵</button>
+      <button className={classes["button-primary"]} onClick={playPreviewAudio}>
+        Preview 🎵
+      </button>
       <audio ref={audioRef} src={audio}></audio>
     </div>
   );

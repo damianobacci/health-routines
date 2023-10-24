@@ -1,0 +1,32 @@
+.counter {
+  padding: 0.7em;
+  margin-bottom: 1em;
+  width: fit-content;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+
+.title {
+  margin: 0.3em 0;
+}
+
+.label {
+  margin: 0.5em 0;
+}
+
+.input {
+  font-size: 15px;
+  padding: 0.3em;
+  margin: 0.5em 0.2em 0 0;
+  display: block;
+  width: max-content;
+  border-radius: 15px;
+}
+
+.button-primary {
+  border: 0px solid transparent;
+  border-radius: 15px;
+  padding: 0.5em;
+  margin: 0 0.2em;
+  font-size: 16px;
+}

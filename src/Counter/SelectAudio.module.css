@@ -1,0 +1,10 @@
+.label {
+  margin-right: 0.4em;
+}
+
+.button-primary {
+  border: 0px solid transparent;
+  padding: 0.2em;
+  margin: 0 0.2em;
+  font-size: 13px;
+}
