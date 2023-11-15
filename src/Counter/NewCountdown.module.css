@@ -30,3 +30,13 @@
   margin: 0 0.2em;
   font-size: 16px;
 }
+
+.error {
+  font-size: 15px;
+  padding: 0.3em;
+  margin: 0.5em 0.2em 0 0;
+  display: block;
+  width: max-content;
+  border-radius: 15px;
+  border-color: red;
+}
