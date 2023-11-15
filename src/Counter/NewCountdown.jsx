@@ -2,29 +2,56 @@ import { useState, useRef } from "react";
 import classes from "./NewCountdown.module.css";
 
 const NewCountdown = (props) => {
-  const [isFormValid, setIsFormValid] = useState(true);
-  const [isNameValid, setIsNameValid] = useState(true);
-  const [isTimeValid, setIsTimeValid] = useState(true);
+  const [enteredValues, setEnteredValues] = useState({
+    name: "",
+    time: "",
+  });
 
-  const name = useRef();
-  const time = useRef();
+  const [didEdit, setDidEdit] = useState({
+    name: false,
+    time: false,
+  });
+
+  const handleInputBlur = (identifier) => {
+    setDidEdit((prevValues) => ({
+      ...prevValues,
+      [identifier]: true,
+    }));
+  };
+
+  const handleInputChange = (identifier, value) => {
+    setEnteredValues((prevValues) => ({
+      ...prevValues,
+      [identifier]: value,
+    }));
+  };
 
   const formSetHandler = (event) => {
     event.preventDefault();
-    let enteredName = name.current.value;
-    let enteredTime = +time.current.value;
+    let enteredName = enteredValues.name;
+    let enteredTime = +enteredValues.time;
     if (!enteredName || !enteredTime) {
-      setIsFormValid(false);
+      if (!enteredName) {
+        setDidEdit((prevValues) => ({
+          ...prevValues,
+          name: true,
+        }));
+      }
+      if (!enteredTime) {
+        setDidEdit((prevValues) => ({
+          ...prevValues,
+          time: true,
+        }));
+      }
       return;
     }
+
     props.onAddTimer({
       id: Math.random().toString(),
       title: enteredName,
       timeSet: enteredTime,
     });
-    setIsFormValid(true);
-    name.current.value = "";
-    time.current.value = "";
+    event.target.reset();
   };
 
   return (
@@ -35,31 +62,37 @@ const NewCountdown = (props) => {
           Name of the new countdown
         </label>
         <input
-          className={isFormValid ? classes.input : classes.error}
+          className={
+            !didEdit.name || enteredValues.name ? classes.input : classes.error
+          }
           id="name"
           type="text"
           placeholder="Name"
-          ref={name}
+          onChange={(event) => handleInputChange("name", event.target.value)}
+          onBlur={() => handleInputBlur("name")}
         />
-        {!isFormValid && (
-          <span className={classes.errorText}> A name is required</span>
+        {didEdit.name && !enteredValues.name && (
+          <p className={classes.errorText}> A name is required</p>
         )}
         <br />
         <label className={classes.label} htmlFor="minutes">
-          Time in minutes (max 240 minutes, or 4 hours)
+          Time in minutes (max 240 minutes)
         </label>
         <input
-          className={isFormValid ? classes.input : classes.error}
+          className={
+            !didEdit.time || enteredValues.time ? classes.input : classes.error
+          }
           id="minutes"
           type="number"
           step="1"
           min="1"
           max="240"
           placeholder="1"
-          ref={time}
+          onChange={(event) => handleInputChange("time", event.target.value)}
+          onBlur={() => handleInputBlur("time")}
         />
-        {!isFormValid && (
-          <span className={classes.errorText}> A time is required</span>
+        {didEdit.time && !enteredValues.time && (
+          <p className={classes.errorText}> A time is required</p>
         )}
         <br />
         <button className={classes["button-primary"]} type="submit">
