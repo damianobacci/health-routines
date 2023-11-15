@@ -11,11 +11,16 @@ const NewCountdown = (props) => {
     event.preventDefault();
     let enteredName = name.current.value;
     let enteredTime = +time.current.value;
+    if (!enteredName || !enteredTime) {
+      setIsFormValid(false);
+      return;
+    }
     props.onAddTimer({
       id: Math.random().toString(),
       title: enteredName,
       timeSet: enteredTime,
     });
+    setIsFormValid(true);
     name.current.value = "";
     time.current.value = "";
   };
@@ -28,7 +33,7 @@ const NewCountdown = (props) => {
           Name of the new countdown
         </label>
         <input
-          className={classes.input}
+          className={isFormValid ? classes.input : classes.error}
           id="name"
           type="text"
           placeholder="Name"
