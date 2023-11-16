@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import classes from "./NewCountdown.module.css";
 
 const NewCountdown = (props) => {
