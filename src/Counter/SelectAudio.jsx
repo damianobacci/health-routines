@@ -30,9 +30,7 @@ const SelectAudio = (props) => {
   };
   return (
     <div>
-      <label className={classes.label} htmlFor="audioSelect">
-        Select an alarm:
-      </label>
+      <h2 className={classes.title}>Select an alarm</h2>
       <select onChange={audioChangeHandler} name="audioSelect" id="audioSelect">
         <option value="alarm">Digital Alarm</option>
         <option value="bell">Train bell</option>

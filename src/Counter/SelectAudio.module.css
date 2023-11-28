@@ -1,10 +1,29 @@
-.label {
-  margin-right: 0.4em;
+.title {
+  margin: 0.3em 0.2em;
+  text-transform: uppercase;
 }
 
 .button-primary {
-  border: 0px solid transparent;
-  padding: 0.1em 0.3em;
+  border: 0.15rem solid black;
+  border-radius: 15px;
+  padding: 0.5em;
   margin: 0 0.5em;
-  font-size: 13px;
+  font-size: 12px;
+  box-shadow: inset 0.125em 0.125em #ffffff, inset -0.125em -0.125em black;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.1em;
+  text-shadow: rgb(255, 255, 255) 1.5px 2px 0px;
+  color: black;
+}
+
+.button-primary:hover {
+  box-shadow: inset 0.125em 0.125em black;
+}
+
+.button-primary:active {
+  border-color: white;
+  box-shadow: 0 0 0 0.1875rem black;
+  outline: 2px solid transparent;
+  outline-offset: 4px;
 }

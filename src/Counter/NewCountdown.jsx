@@ -56,7 +56,7 @@ const NewCountdown = (props) => {
 
   return (
     <div className={classes.counter}>
-      <h2 className={classes.title}>Add your personalized countdown</h2>
+      <h2 className={classes.title}>Add your countdown</h2>
       <form onSubmit={formSetHandler}>
         <label className={classes.label} htmlFor="name">
           Name of the new countdown
