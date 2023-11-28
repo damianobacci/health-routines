@@ -7,9 +7,62 @@
   --color-text: #151515;
   --color-light: #fff;
   --color-anchor: #1d1d1f;
+  --color-black: #000;
   --font-family: "Rubik";
   --font-weight-strong: 500;
   --font-weight-semibold: 600;
+  --font-weight-extrabold: 800;
+  --header-text-shadow: -1px -1px 0 var(--color-black),
+    0 -1px 0 var(--color-black), 1px -1px 0 var(--color-black),
+    -1px 0 0 var(--color-black), 1px 0 0 var(--color-black),
+    -1px 1px 0 var(--color-black), 0 1px 0 var(--color-black),
+    1px 1px 0 var(--color-black), -2px -2px 0 var(--color-black),
+    -1px -2px 0 var(--color-black), 0 -2px 0 var(--color-black),
+    1px -2px 0 var(--color-black), 2px -2px 0 var(--color-black),
+    2px -1px 0 var(--color-black), 2px 0 0 var(--color-black),
+    2px 1px 0 var(--color-black), 2px 2px 0 var(--color-black),
+    1px 2px 0 var(--color-black), 0 2px 0 var(--color-black),
+    -1px 2px 0 var(--color-black), -2px 2px 0 var(--color-black),
+    -2px 1px 0 var(--color-black), -2px 0 0 var(--color-black),
+    -2px -1px 0 var(--color-black), -3px -3px 0 var(--color-black),
+    -2px -3px 0 var(--color-black), 0 -3px 0 var(--color-black),
+    2px -3px 0 var(--color-black), 3px -3px 0 var(--color-black),
+    3px -2px 0 var(--color-black), 3px 0 0 var(--color-black),
+    3px 2px 0 var(--color-black), 3px 3px 0 var(--color-black),
+    2px 3px 0 var(--color-black), 0 3px 0 var(--color-black),
+    -2px 3px 0 var(--color-black), -3px 3px 0 var(--color-black),
+    -3px 2px 0 var(--color-black), -3px 0 0 var(--color-black),
+    -3px -2px 0 var(--color-black), -3px -3px 0 var(--color-black),
+    -1px -3px 0 var(--color-black), 0 -3px 0 var(--color-black),
+    1px -3px 0 var(--color-black), 3px -3px 0 var(--color-black),
+    3px -1px 0 var(--color-black), 3px 0 0 var(--color-black),
+    3px 1px 0 var(--color-black), 3px 3px 0 var(--color-black),
+    1px 3px 0 var(--color-black), 0 3px 0 var(--color-black),
+    -1px 3px 0 var(--color-black), -3px 3px 0 var(--color-black),
+    -3px 1px 0 var(--color-black), -3px 0 0 var(--color-black),
+    -3px -1px 0 var(--color-black), -3px 4px 0 var(--color-black),
+    0px 4px 0 var(--color-black), 3px 4px 0 var(--color-black),
+    -3px 5px 0 var(--color-black), 0px 5px 0 var(--color-black),
+    3px 5px 0 var(--color-black), -3px 6px 0 var(--color-black),
+    0px 6px 0 var(--color-black), 3px 6px 0 var(--color-black),
+    -3px 7px 0 var(--color-black), 0px 7px 0 var(--color-black),
+    3px 7px 0 var(--color-black), -3px 8px 0 var(--color-black),
+    0px 8px 0 var(--color-black), 3px 8px 0 var(--color-black),
+    -3px 9px 0 var(--color-black), 0px 9px 0 var(--color-black),
+    3px 9px 0 var(--color-black), -3px 10px 0 var(--color-black),
+    0px 10px 0 var(--color-black), 3px 10px 0 var(--color-black),
+    -3px 11px 0 var(--color-black), 0px 11px 0 var(--color-black),
+    3px 11px 0 var(--color-black), -3px 12px 0 var(--color-black),
+    0px 12px 0 var(--color-black), 3px 12px 0 var(--color-black),
+    -3px 13px 0 var(--color-black), 0px 13px 0 var(--color-black),
+    3px 13px 0 var(--color-black), -3px 14px 0 var(--color-black),
+    0px 14px 0 var(--color-black), 3px 14px 0 var(--color-black),
+    -3px 15px 0 var(--color-black), 0px 15px 0 var(--color-black),
+    3px 15px 0 var(--color-black), -3px 16px 0 var(--color-black),
+    0px 16px 0 var(--color-black), 3px 16px 0 var(--color-black),
+    -3px 17px 0 var(--color-black), 0px 17px 0 var(--color-black),
+    3px 10px 0 var(--color-black), -3px 18px 0 var(--color-black),
+    0px 18px 0 var(--color-black), 3px 18px 0 var(--color-black);
   --font-size-h1: 7rem;
   --font-size-h2: 4rem;
   --font-size-h3: 3rem;
@@ -29,6 +82,12 @@
   padding: 0.7em 0.7em 0 0.7em;
   margin-bottom: 0;
   text-transform: uppercase;
+  font-style: italic;
+  text-shadow: var(--header-text-shadow);
+  letter-spacing: -0.05em;
+  color: white;
+  font-weight: var(--font-weight-extrabold);
+  text-align: center;
 }
 
 .text {
