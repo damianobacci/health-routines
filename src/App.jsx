@@ -11,6 +11,7 @@ function App() {
         While you are working is hard to keep tracks of many things. Have a
         healthy routine with these simple timers. You can add other timers if
         you prefer.
+        <button className={classes["button-primary"]}>About</button>
       </section>
       <CountdownList />
     </>

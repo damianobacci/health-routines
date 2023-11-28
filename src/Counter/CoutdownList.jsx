@@ -50,16 +50,18 @@ const CountdownList = () => {
 
   return (
     <div className={classes.list}>
-      <SelectAudio onAudioChange={audioChangeHandler} />
-      <button className={classes["button-primary"]} onClick={startAllTimers}>
-        Start All
-      </button>
-      <button className={classes["button-primary"]} onClick={stopAllTimers}>
-        Stop All
-      </button>
-      <button className={classes["button-primary"]} onClick={resetAllTimers}>
-        Reset All
-      </button>
+      <div className={classes.controls}>
+        <SelectAudio onAudioChange={audioChangeHandler} />
+        <button className={classes["button-primary"]} onClick={startAllTimers}>
+          Start All
+        </button>
+        <button className={classes["button-primary"]} onClick={stopAllTimers}>
+          Stop All
+        </button>
+        <button className={classes["button-primary"]} onClick={resetAllTimers}>
+          Reset All
+        </button>
+      </div>
       {countdownList.map((timer) => {
         return (
           <Countdown
