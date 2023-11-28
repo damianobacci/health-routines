@@ -5,10 +5,12 @@
   margin-bottom: 1em;
   max-width: 450px;
   text-align: center;
+  box-shadow: 0.5rem 0.5rem rgba(132, 81, 61, 0.35);
 }
 
 .title {
   margin: 0.3em 0.2em;
+  text-transform: uppercase;
 }
 
 .time {
@@ -16,19 +18,53 @@
 }
 
 .button-primary {
-  border: 0px solid transparent;
+  border: 0.15rem solid black;
+  background-color: #1b62b9;
   border-radius: 15px;
   padding: 0.5em;
   margin: 0.3em 0.2em;
   font-size: 16px;
+  box-shadow: inset 0.15rem 0.15rem white, inset -0.15rem -0.15rem black;
+  color: white;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.1em;
+  text-shadow: rgb(0, 0, 0) 1.5px 2px 0px;
+}
+
+.button-primary:hover {
+  box-shadow: inset 0.125em 0.125em black;
+}
+
+.button-primary:active {
+  border-color: white;
+  box-shadow: 0 0 0 0.1875rem black;
+  outline: 2px solid transparent;
+  outline-offset: 4px;
 }
 
 .button-delete {
-  border: 0px solid transparent;
+  border: 0.15rem solid black;
   border-radius: 15px;
   background-color: red;
   color: white;
   padding: 0.5em;
   margin: 0 0.2em;
   font-size: 16px;
+  box-shadow: inset 0.15rem 0.15rem white, inset -0.15rem -0.15rem black;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.1em;
+  text-shadow: rgb(0, 0, 0) 1.5px 2px 0px;
+}
+
+.button-delete:hover {
+  box-shadow: inset 0.125em 0.125em black;
+}
+
+.button-delete:active {
+  border-color: white;
+  box-shadow: 0 0 0 0.1875rem black;
+  outline: 2px solid transparent;
+  outline-offset: 4px;
 }

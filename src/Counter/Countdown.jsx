@@ -64,15 +64,15 @@ const Countdown = (props) => {
       <h3 className={classes.time}>{`${hours}:${minutes}:${seconds}`}</h3>
       {isPlaying ? (
         <button className={classes["button-primary"]} onClick={pauseCountdown}>
-          ⏸️
+          Pause
         </button>
       ) : (
         <button className={classes["button-primary"]} onClick={startCountdown}>
-          ▶️
+          Play
         </button>
       )}
       <button className={classes["button-primary"]} onClick={resetCountdown}>
-        🔁
+        Reset
       </button>
       <button className={classes["button-delete"]} onClick={props.onDelete}>
         Delete
