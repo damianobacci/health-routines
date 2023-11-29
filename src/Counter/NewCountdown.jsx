@@ -12,6 +12,8 @@ const NewCountdown = (props) => {
     time: false,
   });
 
+  const [overTime, setOverTime] = useState(null);
+
   const handleInputBlur = (identifier) => {
     setDidEdit((prevValues) => ({
       ...prevValues,
@@ -45,6 +47,10 @@ const NewCountdown = (props) => {
       }
       return;
     }
+    if (enteredTime > 240) {
+      setOverTime(true);
+      return;
+    }
 
     props.onAddTimer({
       id: Math.random().toString(),
@@ -52,11 +58,12 @@ const NewCountdown = (props) => {
       timeSet: enteredTime,
     });
     event.target.reset();
+    setOverTime(false);
   };
 
   return (
     <div className={classes.counter}>
-      <h2 className={classes.title}>Add your countdown</h2>
+      <h2 className={classes.title}>Add your countdown!</h2>
       <form onSubmit={formSetHandler}>
         <label className={classes.label} htmlFor="name">
           Name of the new countdown
@@ -93,6 +100,11 @@ const NewCountdown = (props) => {
         />
         {didEdit.time && !enteredValues.time && (
           <p className={classes.errorText}> A time is required</p>
+        )}
+        {overTime && (
+          <p className={classes.errorText}>
+            Your time cannot be over 240 minutes.
+          </p>
         )}
         <br />
         <button className={classes["button-primary"]} type="submit">

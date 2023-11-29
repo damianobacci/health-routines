@@ -5,7 +5,8 @@ function App() {
   return (
     <>
       <header className={classes.header}>
-        <h1>Have some healthy routines!</h1>
+        <h1>Remembrify</h1>
+        <h2>Your Nudge Towards Healthier Desk-Sitting Routines!</h2>
       </header>
       <section className={classes.text}>
         While you are working is hard to keep tracks of many things. Have a
