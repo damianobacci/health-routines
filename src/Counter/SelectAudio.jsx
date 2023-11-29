@@ -36,7 +36,7 @@ const SelectAudio = (props) => {
           Select an alarm...
         </option>
         <option value="alarm">Digital Alarm</option>
-        <option value="bell">Train bell</option>
+        <option value="bell">Train Bell</option>
         <option value="telephone">Telephone</option>
       </select>
       <button className={classes["button-primary"]} onClick={playPreviewAudio}>
