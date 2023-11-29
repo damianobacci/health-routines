@@ -17,8 +17,6 @@
 
 .time {
   margin: 0.3em 0.2em;
-  color: white;
-  text-shadow: var(--counter-text-shadow-time);
   letter-spacing: 0.07em;
 }
 
