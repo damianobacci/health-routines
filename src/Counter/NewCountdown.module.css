@@ -61,11 +61,11 @@
   margin: 0.8em 0.2em 0.5em 0;
   width: max-content;
   border-radius: 15px;
-  border-color: red;
+  outline: 2px solid #fddd50;
   display: block;
 }
 
 .errorText {
-  color: red;
+  color: #fddd50;
   margin-bottom: 0.2em;
 }
