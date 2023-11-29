@@ -7,6 +7,7 @@
   max-width: 450px;
   text-align: center;
   box-shadow: 0.5rem 0.5rem rgba(132, 81, 61, 0.35);
+  background-color: white;
 }
 
 .title {
@@ -16,6 +17,9 @@
 
 .time {
   margin: 0.3em 0.2em;
+  color: white;
+  text-shadow: var(--counter-text-shadow-time);
+  letter-spacing: 0.07em;
 }
 
 .button-primary {

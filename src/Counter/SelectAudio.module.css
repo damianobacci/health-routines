@@ -1,6 +1,8 @@
 .title {
-  margin: 0.3em 0.2em;
+  margin: 0.5em 0;
   text-transform: uppercase;
+  font-style: italic;
+  text-shadow: var(--counter-text-shadow);
 }
 
 .button-primary {
@@ -26,4 +28,8 @@
   box-shadow: 0 0 0 0.1875rem black;
   outline: 2px solid transparent;
   outline-offset: 4px;
+}
+
+span {
+  font-weight: var(--font-weight-bold);
 }

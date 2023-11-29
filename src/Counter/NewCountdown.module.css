@@ -6,11 +6,15 @@
   border: 2px solid black;
   border-radius: 15px;
   box-shadow: 0.5rem 0.5rem rgba(132, 81, 61, 0.35);
+  background-color: #1b62b9;
+  color: white;
 }
 
 .title {
   margin: 0.5em 0;
   text-transform: uppercase;
+  font-style: italic;
+  text-shadow: var(--counter-text-shadow);
 }
 
 .label {

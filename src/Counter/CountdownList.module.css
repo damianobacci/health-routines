@@ -39,4 +39,7 @@
   max-width: 450px;
   text-align: center;
   box-shadow: 0.5rem 0.5rem rgba(132, 81, 61, 0.35);
+  background-color: black;
+  color: white;
+  background-color: #1b62b9;
 }

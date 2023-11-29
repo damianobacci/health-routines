@@ -30,8 +30,11 @@ const SelectAudio = (props) => {
   };
   return (
     <div>
-      <h2 className={classes.title}>Select an alarm</h2>
+      <h2 className={classes.title}>Control all countdowns</h2>
       <select onChange={audioChangeHandler} name="audioSelect" id="audioSelect">
+        <option selected disabled>
+          Select an alarm...
+        </option>
         <option value="alarm">Digital Alarm</option>
         <option value="bell">Train bell</option>
         <option value="telephone">Telephone</option>
