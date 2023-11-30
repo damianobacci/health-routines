@@ -1,7 +1,10 @@
 import classes from "./App.module.css";
 import CountdownList from "./Counter/CoutdownList";
+import AboutModal from "./UI/AboutModal";
+import { useRef } from "react";
 
 function App() {
+  const dialog = useRef();
   return (
     <>
       <header className={classes.header}>
@@ -12,8 +15,14 @@ function App() {
         While you are working is hard to keep tracks of many things. Have a
         healthy routine with these simple timers. You can add other timers if
         you prefer.
-        <button className={classes["button-primary"]}>About</button>
+        <button
+          onClick={() => dialog.current.showModal()}
+          className={classes["button-primary"]}
+        >
+          About
+        </button>
       </section>
+      <AboutModal ref={dialog} />
       <CountdownList />
     </>
   );

@@ -1,0 +1,86 @@
+.result-modal {
+  padding: 2rem;
+  background-color: red;
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 0.7em;
+  margin-bottom: 1em;
+  margin: auto;
+}
+
+.result-modal[open] {
+  animation: slide-in-from-top 0.35s ease-out;
+  backface-visibility: hidden;
+}
+
+.result-modal::backdrop {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.result-modal h2 {
+  text-transform: uppercase;
+  font-style: italic;
+  text-shadow: var(--counter-text-shadow);
+  color: white;
+}
+
+.result-modal p {
+  margin: 1em 0;
+  color: white;
+}
+
+.result-modal p strong {
+  color: #10655b;
+}
+
+.result-modal form {
+  text-align: right;
+}
+
+.result-modal button {
+  border: 0.15rem solid black;
+  border-radius: 15px;
+  padding: 0.5em;
+  margin: 0 0.5em;
+  font-size: 12px;
+  box-shadow: inset 0.125em 0.125em #ffffff, inset -0.125em -0.125em black;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.1em;
+  text-shadow: rgb(255, 255, 255) 1.5px 2px 0px;
+  color: black;
+}
+
+.result-modal button:hover {
+  box-shadow: inset 0.125em 0.125em black;
+}
+
+.result-modal button:active {
+  border-color: white;
+  box-shadow: 0 0 0 0.1875rem black;
+  outline: 2px solid transparent;
+  outline-offset: 4px;
+}
+
+@keyframes slide-in-from-top {
+  0% {
+    transform: translateY(-15%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
