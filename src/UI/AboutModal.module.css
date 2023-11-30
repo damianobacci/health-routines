@@ -6,6 +6,8 @@
   padding: 0.7em;
   margin-bottom: 1em;
   margin: auto;
+  width: 60%;
+  max-width: 450px;
 }
 
 .result-modal[open] {
@@ -30,7 +32,7 @@
 }
 
 .result-modal p strong {
-  color: #10655b;
+  font-weight: var(--font-weight-semibold);
 }
 
 .result-modal form {
