@@ -7,9 +7,9 @@ import SelectAudio from "./SelectAudio";
 import alarm from "../assets/alarm.wav";
 
 const countdowns = [
-  { id: 0, title: "Drink your water 🥛🚰", timeSet: 3600 },
-  { id: 1, title: "Put eye drops 💧👁️", timeSet: 3600 },
-  { id: 2, title: "Walk & stretch 🚶🧘", timeSet: 3600 },
+  { id: 0, title: "Drink your water 🚰", timeSet: 3600 },
+  { id: 1, title: "Put eye drops 👁️", timeSet: 3600 },
+  { id: 2, title: "Walk & stretch 🚶", timeSet: 3600 },
   { id: 3, title: "Get up from your chair 🪑", timeSet: 1200 },
 ];
 
