@@ -12,9 +12,12 @@ function App() {
         <h2>Your Nudge Towards Healthier Desk-Sitting Routines!</h2>
       </header>
       <section className={classes.text}>
-        While you are working is hard to keep tracks of many things. Have a
-        healthy routine with these simple timers. You can add other timers if
-        you prefer.
+        Working at your desk, it's easy to lose track of time and forget to
+        drink water or follow the 20-20-20 eye rule. Setting alarms on your
+        phone can be distracting and counterproductive. Remembrify is here to
+        help. The app allows you to set multiple reminders, helping you maintain
+        your health routines without losing focus at work. Stay hydrated and
+        follow healthy practices while you work, with minimal interruption.
         <button
           onClick={() => dialog.current.showModal()}
           className={classes["button-primary"]}
