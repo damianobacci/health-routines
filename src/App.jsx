@@ -15,10 +15,10 @@ function App() {
         Working at your desk, it's easy to lose track of time and forget to do
         the most basic things, like drinking water. Setting alarms on your phone
         can be distracting and counterproductive, you may check your
-        notifications and get lost. <strong>Remembrify is here to help</strong>.
-        The app allows you to set multiple reminders, helping you maintain your
-        health routines without losing focus at work. Stay hydrated and follow
-        healthy practices while you work, with minimal interruption!
+        notifications and get lost.. <strong>Remembrify is here to help</strong>
+        . The app allows you to set multiple reminders, helping you maintain
+        your health routines without losing focus at work. Stay hydrated and
+        follow healthy practices while you work, with minimal interruption!
         <button
           onClick={() => dialog.current.showModal()}
           className={classes["button-primary"]}
