@@ -10,14 +10,14 @@ type CountDownProps = {
   onDelete: () => void;
 };
 
-const Countdown = ({
+export default function Countdown({
   globalAction,
   reset,
   audio,
   timeSet,
   title,
   onDelete,
-}: CountDownProps) => {
+}: CountDownProps) {
   const [timeInSeconds, setTimeInSeconds] = useState<number>(timeSet);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
@@ -96,6 +96,4 @@ const Countdown = ({
       <audio ref={audioRef} src={audio} preload="auto"></audio>
     </div>
   );
-};
-
-export default Countdown;
+}

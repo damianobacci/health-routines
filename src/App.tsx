@@ -3,7 +3,7 @@ import CountdownList from "./Counter/CoutdownList";
 import AboutModal from "./UI/AboutModal";
 import { useState } from "react";
 
-function App() {
+export default function App() {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -34,5 +34,3 @@ function App() {
     </>
   );
 }
-
-export default App;
