@@ -1,10 +1,11 @@
 import classes from "./App.module.css";
 import CountdownList from "./Counter/CoutdownList";
 import AboutModal from "./UI/AboutModal";
-import { useRef } from "react";
+import { useState } from "react";
 
 function App() {
-  const dialog = useRef();
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <>
       <header className={classes.header}>
@@ -22,13 +23,13 @@ function App() {
         losing focus at work. Stay hydrated and follow healthy practices while
         you work, with minimal interruption!
         <button
-          onClick={() => dialog.current.showModal()}
+          onClick={() => setShowModal(true)}
           className={classes["button-primary"]}
         >
           About
         </button>
       </section>
-      <AboutModal ref={dialog} />
+      {showModal && <AboutModal onClose={() => setShowModal(false)} />}
       <CountdownList />
     </>
   );
