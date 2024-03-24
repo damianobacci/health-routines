@@ -4,7 +4,7 @@
   border: 2px solid black;
   border-radius: 15px;
   padding: 0.7em;
-  max-width: 450px;
+  max-width: 500px;
   animation: slide-in-from-top 0.35s ease-out;
   place-items: center;
   margin: auto;
@@ -43,7 +43,6 @@
   border: 0.15rem solid black;
   border-radius: 15px;
   padding: 0.5em;
-  margin: 0 0.5em;
   font-size: 12px;
   box-shadow: inset 0.125em 0.125em #ffffff, inset -0.125em -0.125em black;
   text-transform: uppercase;

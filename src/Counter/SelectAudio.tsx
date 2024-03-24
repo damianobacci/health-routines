@@ -2,31 +2,34 @@ import { useRef, useState } from "react";
 import alarm from "../assets/alarm.wav";
 import bell from "../assets/bell.wav";
 import telephone from "../assets/telephone.mp3";
-
 import classes from "./SelectAudio.module.css";
 
-const SelectAudio = (props) => {
-  const audioRef = useRef();
+type SelectAudioProps = {
+  onAudioChange: (audio: string) => void;
+};
+
+export default function SelectAudio({ onAudioChange }: SelectAudioProps) {
+  const audioRef = useRef<HTMLAudioElement>(null);
   const [audio, setAudio] = useState(alarm);
 
-  const audioFiles: { alarm: string; bell: string; telephone: string } = {
+  const audioFiles: { [key: string]: string } = {
     alarm: alarm,
     bell: bell,
     telephone: telephone,
   };
 
-  const audioChangeHandler = (event: MouseEvent) => {
+  const audioChangeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedAudio = audioFiles[event.target.value];
     setAudio(selectedAudio);
-    props.onAudioChange(selectedAudio);
+    onAudioChange(selectedAudio);
   };
 
   const playPreviewAudio = () => {
     audioRef.current as HTMLAudioElement;
-    audioRef.current.play();
+    audioRef.current!.play();
     setTimeout(() => {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
+      audioRef.current!.pause();
+      audioRef.current!.currentTime = 0;
     }, 1900);
   };
   return (
@@ -48,6 +51,4 @@ const SelectAudio = (props) => {
       <audio ref={audioRef} src={audio}></audio>
     </div>
   );
-};
-
-export default SelectAudio;
+}

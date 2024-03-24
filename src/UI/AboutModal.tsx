@@ -1,6 +1,10 @@
 import classes from "./AboutModal.module.css";
 
-export default function AboutModal({ onClose }) {
+type AboutModalProps = {
+  onClose: () => void;
+};
+
+export default function AboutModal({ onClose }: AboutModalProps) {
   return (
     <div className={classes.backdrop}>
       <div className={classes["result-modal"]}>

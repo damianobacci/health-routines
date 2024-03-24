@@ -1,7 +1,11 @@
 import { useState } from "react";
 import classes from "./NewCountdown.module.css";
 
-const NewCountdown = (props) => {
+type NewCountdownProps = {
+  onAddTimer: (data: { id: number; title: string; timeSet: number }) => void;
+};
+
+export default function NewCountdown({ onAddTimer }: NewCountdownProps) {
   const [enteredValues, setEnteredValues] = useState({
     name: "",
     time: "",
@@ -12,23 +16,23 @@ const NewCountdown = (props) => {
     time: false,
   });
 
-  const [overTime, setOverTime] = useState(null);
+  const [overTime, setOverTime] = useState<boolean | null>(null);
 
-  const handleInputBlur = (identifier) => {
+  const handleInputBlur = (identifier: string) => {
     setDidEdit((prevValues) => ({
       ...prevValues,
       [identifier]: true,
     }));
   };
 
-  const handleInputChange = (identifier, value) => {
+  const handleInputChange = (identifier: string, value: string) => {
     setEnteredValues((prevValues) => ({
       ...prevValues,
       [identifier]: value,
     }));
   };
 
-  const formSetHandler = (event) => {
+  const formSetHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     let enteredName = enteredValues.name;
     let enteredTime = +enteredValues.time;
@@ -52,12 +56,12 @@ const NewCountdown = (props) => {
       return;
     }
 
-    props.onAddTimer({
-      id: Math.random().toString(),
+    onAddTimer({
+      id: Math.random(),
       title: enteredName,
       timeSet: enteredTime,
     });
-    event.target.reset();
+    event.currentTarget.reset();
     setOverTime(false);
   };
 
@@ -113,6 +117,4 @@ const NewCountdown = (props) => {
       </form>
     </div>
   );
-};
-
-export default NewCountdown;
+}
